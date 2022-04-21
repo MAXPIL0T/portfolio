@@ -63,7 +63,9 @@ h1 {
 
 .container-right h1 {
     font-size: 2rem;
+    height: fit-content;
     margin-right: 3rem;
+    margin-top: 0rem;
 }
 
 .container-right ul {
@@ -73,8 +75,10 @@ h1 {
 
 .todo-embed {
     min-height: 70vh;
+    max-height: 70vh;
     height: fit-content;
     width: 55vw;
+    overflow-y: scroll;
 }
 
 .intro {
@@ -91,4 +95,19 @@ h1 {
     border-bottom: 3px solid white;
     font-size: 1rem;
     margin-bottom: 0.5rem;
+}
+
+.pdf {
+    display: flex;
+    height: 60vh;
+    min-width: 70vw;
+    justify-content: center;
+    width: auto;
+    overflow-y: scroll;
+    border: 2px solid black;
+}
+
+.react-pdf__Page__annotations annotationLayer {
+    max-height: 0vh;
+    margin: none;
 }

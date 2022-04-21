@@ -1,16 +1,25 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './App.css';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
+import resume from './res/resume.pdf'
 import linkedin from './res/linkedin.png';
 import github from './res/github.png'
 import Todo from './todo/App'
 
 function App() {
+
+  const [numPages, setNumPages] = useState(null);
+
+  function onDocumentLoadSuccess({numPages}) {
+    setNumPages(numPages);
+  }
+
   const basic_style = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
-    'z-index': '2'
+    'zIndex': '2'
   };
 
   const ref = useRef();
@@ -19,9 +28,9 @@ function App() {
     <div className="app">
       
       <div className="paral">
-        <Parallax pages={10} ref={ref}>
+        <Parallax pages={9.5} ref={ref}>
           <ParallaxLayer offset={1} speed={1} sticky={{ start: 1, end: 4.5 }} style={{ backgroundColor: 'rgb(36, 35, 92)' }} />
-          <ParallaxLayer offset={6} speed={1} style={{ backgroundColor: '#87BCDE' }} />
+          <ParallaxLayer offset={6.81} speed={1} sticky={{ start: 6.81, end: 7.5 }} style={{ backgroundColor: '#87BCDE' }} />
           <ParallaxLayer offset={0} speed={0.1} style={basic_style}>
             <h1>Maximilian Kuechen</h1>
           </ParallaxLayer>
@@ -35,7 +44,7 @@ function App() {
               </a>
             </div>          
           </ParallaxLayer>
-          <ParallaxLayer offset={1.25} speed={0.1} sticky={{ start: 1.3, end: 4 }} >
+          <ParallaxLayer offset={1.25} speed={0.5} sticky={{ start: 1.3, end: 4.5 }} >
             <div className='container-left'>
               <p>Projects</p>
             </div>
@@ -56,14 +65,42 @@ function App() {
               </div>
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={4} speed={0.5} sticky={{ start: 4, end: 4 }} style={basic_style}>
+          <ParallaxLayer offset={3.5} speed={0.5} sticky={{ start: 3.5, end: 3.5 }} style={basic_style}>
             <div className='container-right'>
-              <p>Todo 1</p>
+              <div className="intro">
+                <h1>This portfolio site</h1>
+                <a className="live-version" href="https://github.com/MAXPIL0T/portfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+              <ul>
+                <li>Utilized React, Node.js, react-spring, framer-motion, and Azure Functions.</li>
+                <li>Deployed on Azure using Azure App Service</li>
+                <li>Embeded parts from other projects as components here.</li>
+                <li>Created custom components to display popups and pdfs.</li>
+              </ul>
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={4} speed={0.5} sticky={{ start: 4, end: 4 }} style={basic_style}>
+          <ParallaxLayer offset={4.5} speed={0.5} sticky={{ start: 4.5, end: 4.5 }} style={basic_style}>
             <div className='container-right'>
-              <p>Todo 2</p>
+              <div className="intro">
+                <h1>Homepage for author Jaden Farquhar</h1>
+                <a className="live-version" href="https://www.jadenfarquhar.com/" target="_blank" rel="noopener noreferrer">Live Version</a>
+              </div>
+              <ul>
+                <li>Utilized React, Node.js, React Router, Azure Functions, SQL, and Redux.</li>
+                <li>Created a user friendly GUI editor so that the author can easily change site content.</li>
+                <li>Implements features such as popups, mailing lists, and PDF previews.</li>
+                <li>Comment sections and user authentication are coming soon.</li>
+              </ul>
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer speed={-0.1} offset={5.4} style={basic_style}>
+            <h1>Resume</h1>
+          </ParallaxLayer>
+          <ParallaxLayer speed={0.1} offset={5.95} style={basic_style}>
+            <div className="pdf">
+              <Document file={resume} width={numPages} onLoadSuccess={onDocumentLoadSuccess} height={400} renderMode="canvas" renderTextLayer={false}>
+                <Page width={1000} pageNumber={1} />
+              </Document>
             </div>
           </ParallaxLayer>
         </Parallax>
