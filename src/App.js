@@ -6,6 +6,7 @@ import resume from './res/resume.pdf'
 import linkedin from './res/linkedin.png';
 import github from './res/github.png'
 import Todo from './todo/App'
+import me from './res/me.jpg'
 
 function App() {
 
@@ -105,7 +106,7 @@ function App() {
           </ParallaxLayer>
           <ParallaxLayer offset={6.99999} speed={1.2} style={basic_style}>
             <div className="container-left">
-              <div className="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="maximilian-kuechen" data-version="v1"></div>
+              <img style={{borderRadius: '50%'}} src={me} alt="Headshot" />
             </div>          
           </ParallaxLayer>
           <ParallaxLayer offset={6.75} speed={0.7} style={basic_style}>
@@ -126,7 +127,7 @@ function App() {
             <div style={{ width: '70vw', display:'flex', flexDirection: 'row', justifyContent: 'space-around', alignContent: 'center'}}>
               <a style={{textDecorations: 'none', cursor: 'pointer', color: 'black', borderBottom: '1px solid black'}} href="mailto:me@maxkuechen.com" target="_blank" rel="noopener noreferrer">me@maxkuechen.com</a>
               <p>© 2022 Maximilian Kuechen</p>
-              <a style={{textDecorations: 'none', cursor: 'pointer', color: 'black', borderBottom: '1px solid black'}} href="https://github.com/MAXPIL0T" target="_blank" rel="noopener noreferrer">View  on  Github.</a>
+              <a style={{textDecorations: 'none', cursor: 'pointer', color: 'black', borderBottom: '1px solid black'}} href="https://github.com/MAXPIL0T/portfolio" target="_blank" rel="noopener noreferrer">View  on  Github.</a>
             </div>
           </ParallaxLayer>
         </Parallax>
