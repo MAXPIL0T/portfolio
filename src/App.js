@@ -28,9 +28,9 @@ function App() {
     <div className="app">
       
       <div className="paral">
-        <Parallax pages={9.5} ref={ref}>
+        <Parallax pages={8.1} ref={ref}>
           <ParallaxLayer offset={1} speed={1} sticky={{ start: 1, end: 4.5 }} style={{ backgroundColor: 'rgb(36, 35, 92)' }} />
-          <ParallaxLayer offset={6.81} speed={1} sticky={{ start: 6.81, end: 7.5 }} style={{ backgroundColor: '#87BCDE' }} />
+          <ParallaxLayer offset={6.91} speed={0.9}  style={{ backgroundColor: '#87BCDE' }} />
           <ParallaxLayer offset={0} speed={0.1} style={basic_style}>
             <h1>Maximilian Kuechen</h1>
           </ParallaxLayer>
@@ -101,6 +101,32 @@ function App() {
               <Document file={resume} width={numPages} onLoadSuccess={onDocumentLoadSuccess} height={400} renderMode="canvas" renderTextLayer={false}>
                 <Page width={1000} pageNumber={1} />
               </Document>
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer offset={6.99999} speed={1.2} style={basic_style}>
+            <div className="container-left">
+              <div className="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="maximilian-kuechen" data-version="v1"></div>
+            </div>          
+          </ParallaxLayer>
+          <ParallaxLayer offset={6.75} speed={0.7} style={basic_style}>
+            <div className="container-right-inf">
+              <div style={{display: 'flex', flexDirection: 'column'}}>
+                <h2>I'd love to get in touch!</h2>
+                <a href="https://www.linkedin.com/in/maximilian-kuechen" target="_blank" rel="noopener noreferrer">Add me on LinkedIn.</a>
+                <a href="https://github.com/MAXPIL0T" target="_blank" rel="noopener noreferrer">Follow my GitHub.</a>
+                <a href="mailto:me@maxkuechen.com" >me@maxkuechen.com</a>
+                <a href="tel:0016172199221">+1 (617) 219-9221</a>
+              </div>
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer offset={7.2} speed={0.4} style={basic_style}>
+            <h1>Thanks for visiting.</h1>
+          </ParallaxLayer>
+          <ParallaxLayer offset={7.85} speed={1} style={basic_style}>
+            <div style={{ width: '70vw', display:'flex', flexDirection: 'row', justifyContent: 'space-around', alignContent: 'center'}}>
+              <a style={{textDecorations: 'none', cursor: 'pointer', color: 'black', borderBottom: '1px solid black'}} href="mailto:me@maxkuechen.com" target="_blank" rel="noopener noreferrer">me@maxkuechen.com</a>
+              <p>© 2022 Maximilian Kuechen</p>
+              <a style={{textDecorations: 'none', cursor: 'pointer', color: 'black', borderBottom: '1px solid black'}} href="https://github.com/MAXPIL0T" target="_blank" rel="noopener noreferrer">View  on  Github.</a>
             </div>
           </ParallaxLayer>
         </Parallax>
