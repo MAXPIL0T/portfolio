@@ -98,6 +98,7 @@ function App() {
             <h1>Resume</h1>
           </ParallaxLayer>
           <ParallaxLayer speed={0.1} offset={5.95} style={basic_style}>
+            <a style={{textDecorations: 'none', cursor: 'pointer', color: 'black', borderBottom: '1px solid black', marginBottom: '0.5rem'}} href={resume} download="Maximilian Kuechen Resume.pdf">Download</a>
             <div className="pdf">
               <Document file={resume} width={numPages} onLoadSuccess={onDocumentLoadSuccess} height={400} renderMode="canvas" renderTextLayer={false}>
                 <Page width={1000} pageNumber={1} />
